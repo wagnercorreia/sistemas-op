@@ -19,6 +19,9 @@ public class Distribuidor extends Thread {  //ou implements Runnable
         this.id = id;
     }
 
+    /**
+     * Obtém a identificação
+     */
     public int getIdent() {
         return this.id;
     }
@@ -44,7 +47,7 @@ public class Distribuidor extends Thread {  //ou implements Runnable
                     }
                 }
                 
-                Thread.sleep(1000);
+                Thread.sleep(100);
             }
             
             System.out.println("Quantidade de lotes de notebooks adquiridas pelo forncedor "+this.id+" "+contNot);

@@ -21,6 +21,14 @@ public class Lote {
         this.preco = preco;
     }
 
+    /**
+     * Rotina para decrementar a quantidade do produto no estoque
+     * 
+     * @param qtd quantidade
+     * @param nome nome do distribuidor
+     * 
+     * @return true em caso de sucesso, false em caso de falha
+     */
     public boolean decrementar(int qtd, int nome) {
 
         try {
@@ -56,10 +64,19 @@ public class Lote {
         return false;
     }
 
+    /**
+     * Este método é um método do tipo get
+     * 
+     * @param null
+     * @return nome do produto
+     */
     public String getNomeProduto() {
         return nomeProduto;
     }
 
+    /**
+     * @return Retorna a quantidade
+     */
     public int getQuantidade() {
         return quantidade;
     }
