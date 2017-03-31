@@ -3,7 +3,7 @@ package threadssistemasoperacionais;
 public class Executar {
     public static void main(String[] args) {
         
-        Lote notebook = new Lote("Notebook", 500);
+        Lote notebook = new Lote("Notebook", 500, 2500);
         
         //Distribuidor 1
         Distribuidor d1 = new Distribuidor(notebook); //objeto 1

@@ -27,12 +27,28 @@ public class Distribuidor extends Thread {  //ou implements Runnable
     public void run() { //método principal
 
         try {
-
+            
+            int contNot = 0;
+            
             for (int i = 1; i <= 100; i++) {
                 int quantidadeAnterior = this.notebook.getQuantidade();
-                this.notebook.decrementar(i, this.id);
+                
+                if (this.notebook.decrementar(i, this.id)) {
+                    contNot += i;
+                } else {
+                    if (this.notebook.getQuantidade() == 0) {
+                        break;
+                    } else {
+                        contNot += this.notebook.getQuantidade();
+                        this.notebook.decrementar(this.notebook.getQuantidade(), this.id);
+                    }
+                }
+                
                 Thread.sleep(1000);
             }
+            
+            System.out.println("Quantidade de lotes de notebooks adquiridas pelo forncedor "+this.id+" "+contNot);
+            
         } catch (InterruptedException ex) {
             Logger.getLogger(Distribuidor.class.getName()).log(Level.SEVERE, null, ex);
         }

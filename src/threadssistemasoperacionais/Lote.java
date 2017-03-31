@@ -12,13 +12,13 @@ public class Lote {
 
     private String nomeProduto;
     private int quantidade;
-    private int preco;
+    private float preco;
     private final Semaphore semaforo = new Semaphore(1);
 
-    public Lote(String produto, int quantidade) {
+    public Lote(String produto, int quantidade, float preco) {
         this.nomeProduto = produto;
         this.quantidade = quantidade;
-        this.preco = 0;
+        this.preco = preco;
     }
 
     public boolean decrementar(int qtd, int nome) {
@@ -33,13 +33,15 @@ public class Lote {
                 this.quantidade -= qtd;
 
                 System.out.println("Distribuidor " + nome + " solicita " + qtd + " unidades de " + this.nomeProduto + ".");
+                System.out.println("Preço : R$ " + this.preco);
                 System.out.println("Quantidade anterior: " + quantidadeAnterior);
-                System.out.println("QUantidade atual: " + this.quantidade);
+                System.out.println("Quantidade atual: " + this.quantidade);
                 System.out.println("------------------------------");
 
                 return true;
             } else {
                 System.out.println("Distribuidor " + nome + " solicita " + qtd + " unidades de " + this.nomeProduto + ".");
+                System.out.println("Preço : R$ " + this.preco);
                 System.out.println("Estoque insuficiente");
                 System.out.println("------------------------------");
                 return false;
