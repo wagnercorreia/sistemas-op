@@ -32,6 +32,7 @@ public class Lote {
     public boolean decrementar(int qtd, int nome) {
 
         try {
+            //Semáforo
             semaforo.acquire();
 
             if (this.quantidade >= qtd) {

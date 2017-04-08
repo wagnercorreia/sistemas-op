@@ -36,6 +36,7 @@ public class Distribuidor extends Thread {  //ou implements Runnable
             for (int i = 1; i <= 100; i++) {
                 int quantidadeAnterior = this.notebook.getQuantidade();
                 
+                //Sessão Crítica
                 if (this.notebook.decrementar(i, this.id)) {
                     contNot += i;
                 } else {
@@ -46,6 +47,7 @@ public class Distribuidor extends Thread {  //ou implements Runnable
                         this.notebook.decrementar(this.notebook.getQuantidade(), this.id);
                     }
                 }
+                //Fim Sessão Crítica
                 
                 Thread.sleep(100);
             }
